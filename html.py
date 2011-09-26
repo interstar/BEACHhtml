@@ -17,12 +17,13 @@ def tag(name,x,*argv) :
 		return s
 
 	# or there are no attributes, just inner
-	return u"<"+name+">"+x+inside+"</"+name+">"
+	return u"<"+name+">"+x+inside+u"</"+name+">"
 
 
 
 tags = ['html','head','body','script','p','div','table','tr','th','td',
-	'ul','ol','li','dt','dd','h1','h2','h3','h4','h5','h6', 'style']
+	'ul','ol','li','dt','dd','h1','h2','h3','h4','h5','h6', 'style',
+	'pre']
 
 loc = locals()
 def setit(loc,t) :

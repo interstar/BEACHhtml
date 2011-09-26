@@ -14,13 +14,14 @@ class TestHtml(unittest.TestCase) :
 
         self.assertEquals(p(),'<p/>')
 
-        print html(
+        self.assertEquals(html(
             head(),
             body(
                 h2("Header"),
                 p('para1'),
                 p('para2')
-                ))
+                )),
+            """<html><head/><body><h2>Header</h2><p>para1</p><p>para2</p></body></html>""")
 
 if __name__ == '__main__' :
     unittest.main()
