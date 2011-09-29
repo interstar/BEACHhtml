@@ -13,11 +13,11 @@ def tag(name,x,*argv) :
 		# we're passing a dictionary of attributes for the tag
 		s = u"<%s " % name 
 		s = s + ' '.join(['%s="%s"'%(k,v) for (k,v) in x.iteritems()])
-		s = s + u">"+inside+u"</"+name+u">"
+		s = s +u">%s</%s>" % (inside,name)
 		return s
 
 	# or there are no attributes, just inner
-	return u"<"+name+">"+x+inside+u"</"+name+">"
+	return u"<%s>%s%s</%s>"% (name,x,inside,name)
 
 
 
