@@ -26,8 +26,16 @@ class TestHtml(unittest.TestCase) :
 
     def testList(self) :
         xs = [1,2,"three"]
-        self.assertEquals(p_ul(xs),"""<ul><li>1</li><li>2</li><li>three</li></ul>""")
-        self.assertEquals(p_ul({"class":"myList"},xs),"""<ul class="myList"><li>1</li><li>2</li><li>three</li></ul>""")
+        self.assertEquals(p_ul(xs),"""<ul>
+<li>1</li>
+<li>2</li>
+<li>three</li>
+</ul>""")
+        self.assertEquals(p_ul({"class":"myList"},xs),"""<ul class="myList">
+<li>1</li>
+<li>2</li>
+<li>three</li>
+</ul>""")
 
     def testTable(self) :
         xs = [["oranges","apples","lemons"],[43,65,54]]

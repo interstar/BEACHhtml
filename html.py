@@ -42,8 +42,8 @@ def p_ul(x,ys=None) :
     if ys : 
         if isinstance(x,dict) :
             ys = [li(y) for y in ys]
-            return ul(x,u''.join(ys))
-    return ul(u''.join([li(ox) for ox in x]))
+            return ul(x,u"\n"+(u'\n'.join(ys))+"\n")
+    return ul(u"\n"+(u'\n'.join([li(ox) for ox in x]))+u"\n")
         
 
 def p_table(x,ys=None) :
