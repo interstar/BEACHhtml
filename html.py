@@ -24,7 +24,7 @@ def tag(name,x,*argv) :
 
 tags = ['html','head','body','script','p','div','table','tr','th','td',
 	'ul','ol','li','dt','dd','h1','h2','h3','h4','h5','h6', 'style','b',
-	'pre','hr']
+	'pre','hr','span']
 
 loc = locals()
 def setit(loc,t) :
