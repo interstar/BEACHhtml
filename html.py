@@ -76,3 +76,17 @@ def file_inject(fName,**argv) :
     f = open(fName)
     tpl = f.read()
     return inject(tpl,**argv)
+    
+    
+class Selector :
+    def __init__(self, index) :
+        self.index = index
+        self.counter = 0
+        
+    def __call__(self,val,f) :
+        if self.counter == self.index :
+            self.counter = self.counter + 1
+            return f(val)
+        else :
+            self.counter = self.counter + 1
+            return val

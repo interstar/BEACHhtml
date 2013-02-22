@@ -2,7 +2,7 @@
 
 import unittest
 from html import html, head, body, p, div, table, th, td, tr, ul, ol, li, dd, dt, h1, h2, h3, h4, h5, h6
-from html import p_ul, p_table, inject, file_inject
+from html import p_ul, p_table, inject, file_inject, Selector
 
 class TestHtml(unittest.TestCase) :
     def test(self) :
@@ -57,7 +57,16 @@ class TestHtml(unittest.TestCase) :
 Another Green World
 """)
         
-
+    def testSelected(self) :
+        sel = Selector(1)
+        xs = [sel(x,lambda x : 99) for x in [0,1,2]]
+        self.assertEquals(xs,[0,99,2])
+        
+        sel = Selector(3)
+        xs = [sel(x, lambda x : div(x)) for x in [0,1,2,3,4,5,6]]
+        self.assertEquals(xs,[0,1,2,"<div>3</div>",4,5,6])
+        
+        
 
 if __name__ == '__main__' :
     unittest.main()
