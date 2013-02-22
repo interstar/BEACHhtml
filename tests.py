@@ -2,7 +2,7 @@
 
 import unittest
 from html import html, head, body, p, div, table, th, td, tr, ul, ol, li, dd, dt, h1, h2, h3, h4, h5, h6
-from html import p_ul, p_table
+from html import p_ul, p_table, inject, file_inject
 
 class TestHtml(unittest.TestCase) :
     def test(self) :
@@ -45,6 +45,18 @@ class TestHtml(unittest.TestCase) :
         self.assertEquals(p_table({"style":"border-width:3px;"},xs),u"""<table style="border-width:3px;">
 <tr><td>oranges</td><td>apples</td><td>lemons</td></tr>
 <tr><td>43</td><td>65</td><td>54</td></tr></table>""")
+
+    def testTemplate(self) :
+        tpl = "Hello $name"        
+        self.assertEquals(inject(tpl,name="world"),"Hello world")
+        
+    def testTemplateFile(self) :
+        fName = "test.tpl"
+        s = file_inject(fName,adj="teenage",noun="America")
+        self.assertEquals(s,"""Hello teenage America!
+Another Green World
+""")
+        
 
 
 if __name__ == '__main__' :

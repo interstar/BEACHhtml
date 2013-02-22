@@ -2,6 +2,8 @@
 # HTML library
 # basic level 
 
+from string import Template
+
 def tag(name,x,*argv) :
 	if x is None :
 		return u"<"+name+u"/>"
@@ -66,4 +68,11 @@ def p_table(x,ys=None) :
 
 
 
-
+def inject(tpl, **argv) :
+    tpl = Template(tpl)
+    return tpl.substitute(**argv)
+    
+def file_inject(fName,**argv) :
+    f = open(fName)
+    tpl = f.read()
+    return inject(tpl,**argv)
