@@ -69,10 +69,12 @@ def p_table(x,ys=None) :
 
 
 def inject(tpl, **argv) :
+    """Use a string as a template with string.Template. Handy if you need to include large externally created chunks of HTML inside a page you're creating """
     tpl = Template(tpl)
     return tpl.substitute(**argv)
     
 def file_inject(fName,**argv) :
+    """Quick way to pull in an external html template (in python's String.Template format) for use within the chunk of html you're generating"""
     f = open(fName)
     tpl = f.read()
     return inject(tpl,**argv)

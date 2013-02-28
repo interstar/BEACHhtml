@@ -1,1 +1,15 @@
 Phil's ultra-light html generating library
+
+
+from html import *
+
+page = html(
+    head(),
+    body(
+        h1("This is a title"),
+        p("Here is a body")
+    )    
+)
+
+print page
+
