@@ -1,7 +1,7 @@
 # Unit tests
 
 import unittest
-from html import html, head, body, p, div, table, th, td, tr, ul, ol, li, dd, dt, h1, h2, h3, h4, h5, h6
+from html import html, head, body, p, div, table, th, td, tr, ul, ol, li, dd, dt, h1, h2, h3, h4, h5, h6, label
 from html import p_ul, p_table, inject, file_inject, Selector, breaks
 
 class TestHtml(unittest.TestCase) :
