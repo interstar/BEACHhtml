@@ -78,6 +78,9 @@ def file_inject(fName,**argv) :
     f = open(fName)
     tpl = f.read()
     return inject(tpl,**argv)
+
+def breaks(s) :
+    return "\n" + s + "\n"
     
     
 class Selector :

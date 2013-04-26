@@ -2,10 +2,11 @@
 
 import unittest
 from html import html, head, body, p, div, table, th, td, tr, ul, ol, li, dd, dt, h1, h2, h3, h4, h5, h6
-from html import p_ul, p_table, inject, file_inject, Selector
+from html import p_ul, p_table, inject, file_inject, Selector, breaks
 
 class TestHtml(unittest.TestCase) :
     def test(self) :
+        self.assertEquals(breaks("hello world"),"\nhello world\n")
         self.assertEquals(p('hello world'),"<p>hello world</p>")
         self.assertEquals(div('hello world'),"<div>hello world</div>")
         self.assertEquals(div({'class':'myclass','id':'myd'},'hello world'),
